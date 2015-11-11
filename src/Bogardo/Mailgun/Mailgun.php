@@ -82,6 +82,29 @@ class Mailgun extends MailgunApi
     }
 
     /**
+     * Send a new string message.
+     *
+     * @param string         $text
+     * @param array          $data
+     * @param Closure|string $callback
+     * @param bool           $mustInit
+     *
+     * @return object Mailgun response containing http_response_body and http_response_code
+     */
+    public function raw($text, $callback, $mustInit = true)
+    {
+        if ($mustInit) {
+            $this->_init();
+        }
+
+        $this->callMessageBuilder($callback, $this->message);
+
+        $this->getMessage($text, null);
+
+        return $this->mailgun(true, config('mailgun.api_key'))->sendMessage(config('mailgun.domain'), $this->getMessageData(), $this->getAttachmentData());
+    }
+
+    /**
      * Send a new message.
      *
      * @param string|array   $view
