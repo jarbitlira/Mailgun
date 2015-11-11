@@ -85,7 +85,6 @@ class Mailgun extends MailgunApi
      * Send a new string message.
      *
      * @param string         $text
-     * @param array          $data
      * @param Closure|string $callback
      * @param bool           $mustInit
      *
