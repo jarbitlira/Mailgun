@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Bogardo\Mailgun\Mailgun;
 
 use Config;
