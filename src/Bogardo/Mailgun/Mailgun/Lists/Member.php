@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Bogardo\Mailgun\Mailgun\Lists;
 
 use Bogardo\Mailgun\Mailgun\MailgunApi;
